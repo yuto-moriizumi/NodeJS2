@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><%=title%></h1>
+    </header>
+    <main>
+        <% if(content!=null){%>
+        <ol>
+            <% for(element of content){%>
+            <li><a href="<%=element.link%>"><%= element.title%></a></li>
+            <%}%>
+        </ol>
+        <%}%>
+            <!-- action="/hello/post" method="POST"-->
+            <input id="number" type="text" name="message" value=''>
+            <button id="btn">aaaa</button>
+            <p id='msg'></p>
+    </main>
+    <script>
+        function test() {
+            console.log('this.responceText');
+            console.log(new Date().toString());
+            const req = new XMLHttpRequest();
+            console.log(document.getElementById("number").value);
+            req.open("GET", "./ajax?id=" + document.getElementById("number").value, false);
+            req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            req.send(null);
+            document.getElementById('msg').innerText = req.response;
+        }
+        document.getElementById("btn").onclick = test;
+
+    </script>
+</body>
+
+</html>

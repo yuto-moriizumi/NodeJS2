@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><%=title%></h1>
+    </header>
+    <main>
+        <table>
+            <%for(const i of content){%>
+            <tr>
+                <th><%=i.attributes.id%></th>
+                <td><%=i.attributes.name%></td>
+                <td><%=i.attributes.mail%></td>
+                <td><%=i.attributes.age%></td>
+            </tr>
+            <%}%>
+        </table>
+    </main>
+    <footer>
+        <a href="/chap5-4/1">&lt;&lt; First</a><a href="/chap5-4/<%= pagination.page-1 %>">&lt; prev</a><span>
+            </span><a href="/chap5-4/<%= pagination.page+1 %>">next &gt;</a><a
+                href="/chap5-4/<%= pagination.pageCount %>">last
+                &gt;&gt;</a>
+            </footer>
+</body>
+
+</html>

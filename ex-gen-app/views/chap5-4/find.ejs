@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <header>
+        <h1><%=title%></h1>
+    </header>
+    <main>
+        <p><%- content %></p>
+        <table>
+            <% if (mydata != null ) {%>
+            <tr>
+                <th><%=mydata.attributes.id%></th>
+                <td><%=mydata.attributes.name%></td>
+                <td><%=mydata.attributes.mail%></td>
+                <td><%=mydata.attributes.age%></td>
+            </tr>
+            <%}%>
+        </table>
+        <form action="/chap5-4/find" method="post">
+        <table>
+            <tr>
+                <th>NAME</th>
+                <td><input type="text" name="fstr" value="<%= form.fstr %>"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="検索"></td>
+            </tr>
+        </table>
+        </form>
+    </main>
+</body>
+
+</html>

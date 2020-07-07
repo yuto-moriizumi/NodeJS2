@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+    <header>
+        <h1><%= title %></h1>
+    </header>
+    <main>
+        <h2><%= collection[0].relations.user.attributes.name %>'s Home</h2>
+        <p><%= collection[0].relations.user.attributes.comment%></p>
+        <hr>
+        <table style="width:90%">
+            <% for(i of collection) {%>
+            <%- include('data_item',{val:i})%>
+            <%}>
+        </table>
+        <% if (pagination.page>1){%>
+            <a href="/home/<%=user_id%>/<%=pagination.page-1%>">&lt;&lt; prev</a>
+            <%} else{%>
+            &lt;&lt; prev
+            <%}%>
+
+        <% if  (pagination.page<pagination.pageCount){%>
+            <a href="/home/<%=user_id%>/<%=pagination.page+1>">Next &gt;&gt;</a>
+        <% } else {%>
+            Next &gt;&gt;
+        <%}%>
+        <a href="/">&lt;&lt; Top</a>
+                    
+    </main>
+</body>
+
+</html>

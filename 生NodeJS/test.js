@@ -1,0 +1,1 @@
+require('http').createServer(((rq, rs) => { rs.end('Hello Node.js!'); })).listen(3000);
